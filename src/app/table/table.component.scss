@@ -1,0 +1,18 @@
+::ng-deep .dx-datagrid .dx-data-row > td.bullet {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+::ng-deep #gridContainer {
+  height: 800px;
+}
+
+
+img {
+  height: 100px;
+  display: block;
+}
+
+::ng-deep .dx-toolbar-after {
+  padding-right: 50px;
+}

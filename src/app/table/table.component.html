@@ -1,0 +1,44 @@
+<div *ngIf="dataSource$ | async as dataSource; else loader">
+  <dx-data-grid
+    id="gridContainer"
+    [dataSource]="dataSource"
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true"
+    [showBorders]="true"
+  >
+    <dxo-paging [pageSize]="25"></dxo-paging>
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxi-column
+      *ngIf="dataSource[0].picture"
+      dataField="picture"
+      [width]="100"
+      cellTemplate="cellTemplate"
+    >
+    </dxi-column>
+    <dxi-column *ngIf="dataSource[0].name" dataField="name" dataType="string"></dxi-column>
+    <dxi-column *ngIf="dataSource[0].gender" dataField="gender" dataType="string"></dxi-column>
+    <dxi-column *ngIf="dataSource[0].phone" dataField="phone" dataType="string"></dxi-column>
+    <div *dxTemplate="let data of 'cellTemplate'">
+      <img [ngSrc]="data.value" width="100" height="100" priority alt="picture"/>
+    </div>
+
+    <div *ngIf="dataSource[0].email || dataSource[0].city || dataSource[0].street">
+      <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+      <div *dxTemplate="let item of 'detail'">
+        <app-table-detail [data]="item.data"></app-table-detail>
+      </div>
+    </div>
+  </dx-data-grid>
+</div>
+
+<ng-template #loader>
+  <div class="text-center mt-5">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>

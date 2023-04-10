@@ -1,0 +1,61 @@
+<div class="container text-center m-2">
+  <div class="card">
+    <div class="row m-2">
+      <div class="col">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="filters.gender"
+            (ngModelChange)="changeEvent($event, FilterType.gender)"
+          >
+          Gender
+        </label>
+      </div>
+      <div class="col">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="filters.city"
+            (ngModelChange)="changeEvent($event, FilterType.city)"
+          >
+          City
+        </label>
+      </div>
+      <div class="col">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="filters.street"
+            (ngModelChange)="changeEvent($event, FilterType.street)"
+          >
+          Street
+        </label>
+      </div>
+      <div class="col">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="filters.email"
+            (ngModelChange)="changeEvent($event, FilterType.email)"
+          >
+          Email
+        </label>
+      </div>
+      <div class="col">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="filters.phone"
+            (ngModelChange)="changeEvent($event, FilterType.phone)"
+          >
+          Phone
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
